@@ -200,15 +200,14 @@
     <div class="about-grid">
       <div>
         <div class="about-img" id="about-img-wrap">
-          <div id="img-placeholder" style="display:flex;flex-direction:column;align-items:center;gap:1rem">
-            <div style="font-size:3.5rem">👤</div>
+          <div style="font-size:3.5rem">👤</div>
             <label for="photo-upload" style="cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:0.4rem">
               <div class="btn-outline" style="font-size:0.75rem;padding:6px 16px;cursor:pointer">Upload Photo</div>
               <span style="font-size:0.72rem;color:var(--text3);letter-spacing:0.1em">Click to add your photo</span>
             </label>
             <input type="file" id="photo-upload" accept="image/*" style="display:none" onchange="handlePhoto(event)"/>
           </div>
-          <img id="profile-photo" src="" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+          <img id="profile-photo" src="photo.jpeg" style="display:block;width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
         </div>
       </div>
       <div class="about-content">
