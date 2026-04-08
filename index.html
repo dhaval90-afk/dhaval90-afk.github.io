@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --bg2: #f2f0ec;
+    --bg3: #e8e5df;
+    --text: #1a1916;
+    --text2: #4a4843;
+    --text3: #7a7874;
+    --accent: #b5832a;
+    --accent2: #8c6320;
+    --border: rgba(26,25,22,0.12);
+    --card: #ffffff;
+    --nav: rgba(250,249,247,0.95);
+  }
+  [data-theme="dark"] {
+    --bg: #111010;
+    --bg2: #1a1916;
+    --bg3: #252320;
+    --text: #f0ede8;
+    --text2: #b8b5b0;
+    --text3: #7a7874;
+    --accent: #d4a44c;
+    --accent2: #e8c06a;
+    --border: rgba(240,237,232,0.1);
+    --card: #1e1d1a;
+    --nav: rgba(17,16,16,0.95);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; transition: background 0.3s, color 0.3s; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--nav); border-bottom: 1px solid var(--border); backdrop-filter: blur(8px); }
+  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--accent); letter-spacing: 0.01em; }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a { font-size: 0.85rem; color: var(--text2); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .theme-btn { background: none; border: 1px solid var(--border); color: var(--text2); cursor: pointer; padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; font-family: 'Lato', sans-serif; font-weight: 700; letter-spacing: 0.06em; transition: all 0.2s; }
+  .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* SECTIONS */
+  section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+  .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 3rem; }
+  .divider { width: 48px; height: 3px; background: var(--accent); margin: 1rem 0 2.5rem; }
+
+  /* HERO */
+  #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 64px; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%; }
+  .hero-tag { display: inline-block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--accent); border: 1px solid var(--accent); padding: 5px 14px; border-radius: 20px; margin-bottom: 1.5rem; }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: 3.8rem; font-weight: 700; line-height: 1.1; color: var(--text); margin-bottom: 1rem; }
+  .hero-name span { color: var(--accent); }
+  .hero-subtitle { font-size: 1.1rem; color: var(--text2); line-height: 1.7; margin-bottom: 2rem; max-width: 440px; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: #fff; border: none; padding: 12px 28px; border-radius: 4px; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; cursor: pointer; text-transform: uppercase; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--accent2); }
+  .btn-outline { background: none; color: var(--text); border: 1px solid var(--border); padding: 12px 28px; border-radius: 4px; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; cursor: pointer; text-transform: uppercase; transition: all 0.2s; }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 1rem; text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--accent); }
+  .stat-label { font-size: 0.75rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-top: 0.25rem; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+  .about-img { width: 100%; aspect-ratio: 3/4; background: var(--bg3); border-radius: 4px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+  .about-content p { color: var(--text2); margin-bottom: 1.2rem; font-size: 1.02rem; }
+  .about-highlights { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .highlight-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .highlight-icon { width: 36px; height: 36px; background: var(--accent); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; }
+  .highlight-text strong { display: block; font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .highlight-text span { font-size: 0.82rem; color: var(--text3); }
+
+  /* EXPERIENCE */
+  .timeline { position: relative; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--border); }
+  .timeline-item { padding-left: 2.5rem; padding-bottom: 3rem; position: relative; }
+  .timeline-item::before { content: ''; position: absolute; left: -5px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+  .timeline-period { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem; }
+  .timeline-role { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--text); }
+  .timeline-company { font-size: 0.9rem; color: var(--text2); margin-bottom: 0.8rem; }
+  .timeline-achievements { list-style: none; margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .timeline-achievements li { font-size: 0.9rem; color: var(--text2); padding-left: 1rem; position: relative; }
+  .timeline-achievements li::before { content: '▹'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .skill-category { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
+  .skill-cat-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag { background: var(--bg2); color: var(--text2); font-size: 0.8rem; padding: 4px 12px; border-radius: 3px; font-weight: 400; border: 1px solid var(--border); }
+
+  /* BLOG / CASE STUDIES */
+  .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+  .post-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+  .post-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+  .post-thumb { height: 160px; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; border-bottom: 1px solid var(--border); }
+  .post-body { padding: 1.4rem; }
+  .post-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; display: block; }
+  .post-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.6rem; line-height: 1.3; }
+  .post-excerpt { font-size: 0.85rem; color: var(--text3); line-height: 1.6; }
+  .post-meta { font-size: 0.75rem; color: var(--text3); margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); display: flex; gap: 1rem; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .contact-icon { width: 42px; height: 42px; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .contact-item-text strong { display: block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); margin-bottom: 2px; }
+  .contact-item-text a, .contact-item-text span { font-size: 0.95rem; color: var(--text); text-decoration: none; }
+  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); }
+  .form-group input, .form-group textarea { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 10px 14px; font-family: 'Lato', sans-serif; font-size: 0.95rem; color: var(--text); transition: border-color 0.2s; outline: none; }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+  .form-group textarea { min-height: 120px; resize: vertical; }
+
+  /* MODAL */
+  .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+  .modal { background: var(--card); border-radius: 8px; padding: 2.5rem; max-width: 600px; width: 100%; border: 1px solid var(--border); max-height: 90vh; overflow-y: auto; position: relative; }
+  .modal h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--text); margin-bottom: 1.5rem; }
+  .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text3); }
+  .modal-actions { display: flex; gap: 1rem; margin-top: 1.5rem; }
+
+  /* TOAST */
+  .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 4px; font-size: 0.85rem; font-weight: 700; z-index: 300; opacity: 0; transform: translateY(10px); transition: all 0.3s; pointer-events: none; }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero-name { font-size: 2.6rem; }
+    .section-title { font-size: 1.8rem; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .nav-links a:not(:last-child) { display: none; }
+  }
+</style>
+</head>
+<body data-theme="light">
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" id="nav-logo">Your Name</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">☾ Dark</button>
+    </div>
+  </div>
+</nav>
+
+<div style="padding-top:64px">
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid">
+    <div>
+      <span class="hero-tag" id="hero-tag">Sales Professional</span>
+      <h1 class="hero-name" id="hero-name">Your <span>Full Name</span></h1>
+      <p class="hero-subtitle" id="hero-subtitle">Driving revenue growth and building lasting client relationships. Passionate about turning prospects into partners and numbers into stories.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="openEdit('hero')">Edit This Section</button>
+        <button class="btn-outline" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+      </div>
+    </div>
+    <div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-num" id="stat1-num">$0M+</div>
+          <div class="stat-label" id="stat1-label">Revenue Closed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="stat2-num">0+</div>
+          <div class="stat-label" id="stat2-label">Years Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="stat3-num">0%</div>
+          <div class="stat-label" id="stat3-label">Quota Attainment</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:1.5rem">
+        <button class="btn-outline" onclick="openEdit('stats')" style="font-size:0.75rem;padding:8px 20px">Edit Stats</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div style="background:var(--bg2)">
+  <div style="max-width:1100px;margin:0 auto;padding:5rem 2rem" id="about">
+    <div class="section-label">Who I Am</div>
+    <div class="about-grid">
+      <div>
+        <div class="about-img" id="about-img-wrap">
+          <div id="img-placeholder" style="display:flex;flex-direction:column;align-items:center;gap:1rem">
+            <div style="font-size:3.5rem">👤</div>
+            <label for="photo-upload" style="cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:0.4rem">
+              <div class="btn-outline" style="font-size:0.75rem;padding:6px 16px;cursor:pointer">Upload Photo</div>
+              <span style="font-size:0.72rem;color:var(--text3);letter-spacing:0.1em">Click to add your photo</span>
+            </label>
+            <input type="file" id="photo-upload" accept="image/*" style="display:none" onchange="handlePhoto(event)"/>
+          </div>
+          <img id="profile-photo" src="" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-title" style="font-size:2rem;margin-bottom:1rem">About Me</div>
+        <div class="divider"></div>
+        <p id="about-para1">Hi, I'm [Your Name] — a results-driven sales professional with a passion for building meaningful client relationships and delivering consistent revenue growth.</p>
+        <p id="about-para2">With experience across [industry/industries], I specialize in consultative selling, territory management, and crafting solutions that genuinely solve client problems.</p>
+        <p id="about-para3">When I'm not closing deals, I write about sales strategy, share lessons from the field, and mentor early-stage professionals entering the world of sales.</p>
+        <button class="btn-outline" onclick="openEdit('about')" style="margin-top:1rem;font-size:0.8rem;padding:8px 18px">Edit About</button>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">🎯</div>
+            <div class="highlight-text"><strong id="h1-title">Top Performer</strong><span id="h1-sub">Consistent quota over-achiever across all roles</span></div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🤝</div>
+            <div class="highlight-text"><strong id="h2-title">Relationship Builder</strong><span id="h2-sub">Long-term client partnerships and high retention rates</span></div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">📊</div>
+            <div class="highlight-text"><strong id="h3-title">Data-Driven</strong><span id="h3-sub">Pipeline management and CRM-first approach</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Career</div>
+  <div class="section-title">Work Experience</div>
+  <div class="divider"></div>
+  <div class="timeline" id="timeline-list">
+    <div class="timeline-item">
+      <div class="timeline-period">2022 — Present</div>
+      <div class="timeline-role">Senior Account Executive</div>
+      <div class="timeline-company">Company Name · Location</div>
+      <ul class="timeline-achievements">
+        <li>Exceeded annual quota by 130%, generating $4.2M in new ARR</li>
+        <li>Managed a portfolio of 40+ enterprise accounts in the [industry] vertical</li>
+        <li>Reduced sales cycle by 22% through improved discovery and qualification</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">2019 — 2022</div>
+      <div class="timeline-role">Account Executive</div>
+      <div class="timeline-company">Previous Company · Location</div>
+      <ul class="timeline-achievements">
+        <li>Closed $2.1M in revenue in FY21, 118% of target</li>
+        <li>Developed and executed territory plans for mid-market segment</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">2017 — 2019</div>
+      <div class="timeline-role">Sales Development Representative</div>
+      <div class="timeline-company">Early Company · Location</div>
+      <ul class="timeline-achievements">
+        <li>Generated 80+ qualified opportunities per quarter</li>
+        <li>Top SDR for 4 consecutive quarters</li>
+      </ul>
+    </div>
+  </div>
+  <button class="btn-outline" onclick="openEdit('experience')" style="margin-top:1rem;font-size:0.8rem;padding:8px 18px">Edit Experience</button>
+</section>
+
+<!-- SKILLS -->
+<div style="background:var(--bg2)">
+  <div style="max-width:1100px;margin:0 auto;padding:5rem 2rem" id="skills">
+    <div class="section-label">Expertise</div>
+    <div class="section-title">Skills &amp; Tools</div>
+    <div class="divider"></div>
+    <div class="skills-grid" id="skills-grid">
+      <div class="skill-category">
+        <div class="skill-cat-title">Sales Skills</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Consultative Selling</span>
+          <span class="skill-tag">MEDDIC / SPIN</span>
+          <span class="skill-tag">Account Management</span>
+          <span class="skill-tag">Pipeline Management</span>
+          <span class="skill-tag">Negotiation</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">CRM &amp; Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Salesforce</span>
+          <span class="skill-tag">HubSpot</span>
+          <span class="skill-tag">Outreach</span>
+          <span class="skill-tag">LinkedIn Sales Nav</span>
+          <span class="skill-tag">Gong</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Domains</div>
+        <div class="skill-tags">
+          <span class="skill-tag">SaaS</span>
+          <span class="skill-tag">Enterprise B2B</span>
+          <span class="skill-tag">Channel Sales</span>
+          <span class="skill-tag">SMB</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Soft Skills</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Executive Presence</span>
+          <span class="skill-tag">Storytelling</span>
+          <span class="skill-tag">Active Listening</span>
+          <span class="skill-tag">Team Collaboration</span>
+        </div>
+      </div>
+    </div>
+    <button class="btn-outline" onclick="openEdit('skills')" style="margin-top:2rem;font-size:0.8rem;padding:8px 18px">Edit Skills</button>
+  </div>
+</div>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-label">Thoughts &amp; Insights</div>
+  <div class="section-title">Blog &amp; Articles</div>
+  <div class="divider"></div>
+  <div class="posts-grid" id="blog-grid">
+    <div class="post-card">
+      <div class="post-thumb">✍️</div>
+      <div class="post-body">
+        <span class="post-tag">Sales Strategy</span>
+        <div class="post-title">How I Shortened My Sales Cycle by 22% in One Quarter</div>
+        <div class="post-excerpt">A breakdown of the discovery framework and qualification changes that made the biggest difference.</div>
+        <div class="post-meta"><span>March 2025</span><span>5 min read</span></div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="post-thumb">📈</div>
+      <div class="post-body">
+        <span class="post-tag">Career</span>
+        <div class="post-title">From SDR to AE: What Nobody Tells You</div>
+        <div class="post-excerpt">The mindset shift required when moving from pipeline generation to full-cycle closing.</div>
+        <div class="post-meta"><span>Jan 2025</span><span>4 min read</span></div>
+      </div>
+    </div>
+    <div class="post-card" style="border:2px dashed var(--border);background:transparent;display:flex;align-items:center;justify-content:center;min-height:280px;cursor:pointer" onclick="openUpload('blog')">
+      <div style="text-align:center;color:var(--text3)">
+        <div style="font-size:2rem;margin-bottom:0.5rem">+</div>
+        <div style="font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase">Add Blog Post</div>
+        <div style="font-size:0.78rem;margin-top:0.25rem">Upload or write new</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<div style="background:var(--bg2)">
+  <div style="max-width:1100px;margin:0 auto;padding:5rem 2rem" id="casestudies">
+    <div class="section-label">Proof of Work</div>
+    <div class="section-title">Case Studies</div>
+    <div class="divider"></div>
+    <div class="posts-grid" id="cases-grid">
+      <div class="post-card">
+        <div class="post-thumb">🏆</div>
+        <div class="post-body">
+          <span class="post-tag">Enterprise Deal</span>
+          <div class="post-title">Closing a $1.2M Deal in a Competitive Procurement Process</div>
+          <div class="post-excerpt">How I navigated a 7-stakeholder buying committee and won against two established competitors.</div>
+          <div class="post-meta"><span>Q4 2024</span><span>Case Study</span></div>
+        </div>
+      </div>
+      <div class="post-card" style="border:2px dashed var(--border);background:transparent;display:flex;align-items:center;justify-content:center;min-height:280px;cursor:pointer" onclick="openUpload('case')">
+        <div style="text-align:center;color:var(--text3)">
+          <div style="font-size:2rem;margin-bottom:0.5rem">+</div>
+          <div style="font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase">Add Case Study</div>
+          <div style="font-size:0.78rem;margin-top:0.25rem">Upload or write new</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div style="background:var(--bg2)">
+  <div style="max-width:1100px;margin:0 auto;padding:5rem 2rem" id="contact">
+    <div class="section-label">Let's Talk</div>
+    <div class="section-title">Get in Touch</div>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div>
+        <p style="color:var(--text2);margin-bottom:2rem;font-size:1rem">Whether you're looking to collaborate, hire, or just want to discuss sales strategy — my inbox is open.</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-item-text"><strong>Email</strong><span id="contact-email">you@email.com</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-item-text"><strong>Location</strong><span id="contact-location">Your City, Country</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">💼</div>
+            <div class="contact-item-text"><strong>LinkedIn</strong><a id="contact-linkedin" href="#">linkedin.com/in/yourprofile</a></div>
+          </div>
+        </div>
+        <button class="btn-outline" onclick="openEdit('contact')" style="margin-top:2rem;font-size:0.8rem;padding:8px 18px">Edit Contact Info</button>
+      </div>
+      <div>
+        <div class="contact-form">
+          <div class="form-group"><label>Your Name</label><input type="text" placeholder="Jane Smith"/></div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="jane@company.com"/></div>
+          <div class="form-group"><label>Message</label><textarea placeholder="What's on your mind?"></textarea></div>
+          <button class="btn-primary" onclick="showToast('Message sent! I\'ll be in touch soon.')">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="text-align:center;padding:2rem;background:var(--bg);border-top:1px solid var(--border)">
+  <p style="font-size:0.78rem;color:var(--text3);letter-spacing:0.08em">© 2025 <span id="footer-name">Your Name</span> · Built with intention</p>
+</footer>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" style="display:none" class="modal-backdrop" onclick="closeModal(event)">
+  <div class="modal" id="modal-content">
+    <button class="modal-close" onclick="closeModalDirect()">×</button>
+    <h2 id="modal-title">Edit Section</h2>
+    <div id="modal-body"></div>
+    <div class="modal-actions">
+      <button class="btn-primary" id="modal-save">Save Changes</button>
+      <button class="btn-outline" onclick="closeModalDirect()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+function toggleTheme() {
+  const body = document.body;
+  const isDark = body.getAttribute('data-theme') === 'dark';
+  body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('theme-btn').textContent = isDark ? '☾ Dark' : '☀ Light';
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+function fi(id) { return document.getElementById(id); }
+
+function openEdit(section) {
+  const modal = fi('modal');
+  const body = fi('modal-body');
+  const saveBtn = fi('modal-save');
+  modal.style.display = 'flex';
+
+  const inp = (id, val, placeholder) => `<div class="form-group" style="margin-bottom:1rem"><label style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)">${id.replace(/-/g,' ')}</label><input id="${id}" value="${val||''}" placeholder="${placeholder||''}" style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:4px;padding:10px 14px;font-size:0.9rem;color:var(--text);outline:none;font-family:'Lato',sans-serif"/></div>`;
+  const ta = (id, val, placeholder) => `<div class="form-group" style="margin-bottom:1rem"><label style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)">${id.replace(/-/g,' ')}</label><textarea id="${id}" placeholder="${placeholder||''}" style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:4px;padding:10px 14px;font-size:0.9rem;color:var(--text);outline:none;min-height:80px;resize:vertical;font-family:'Lato',sans-serif">${val||''}</textarea></div>`;
+
+  if (section === 'hero') {
+    fi('modal-title').textContent = 'Edit Hero Section';
+    body.innerHTML = inp('full-name', fi('hero-name').innerText, 'Your Full Name') + inp('title-tag', fi('hero-tag').textContent, 'e.g. Sales Professional') + ta('subtitle', fi('hero-subtitle').textContent, 'Your headline description');
+    saveBtn.onclick = () => {
+      const name = fi('full-name').value;
+      const parts = name.split(' ');
+      fi('hero-name').innerHTML = `${parts[0]} <span>${parts.slice(1).join(' ')}</span>`;
+      fi('nav-logo').textContent = name;
+      fi('footer-name').textContent = name;
+      fi('hero-tag').textContent = fi('title-tag').value;
+      fi('hero-subtitle').textContent = fi('subtitle').value;
+      closeModalDirect(); showToast('Hero updated!');
+    };
+  }
+
+  else if (section === 'stats') {
+    fi('modal-title').textContent = 'Edit Stats';
+    body.innerHTML = [1,2,3].map(i => `<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">${inp('s'+i+'n', fi('stat'+i+'-num').textContent, 'e.g. $5M+')}${inp('s'+i+'l', fi('stat'+i+'-label').textContent, 'Label')}</div>`).join('');
+    saveBtn.onclick = () => {
+      [1,2,3].forEach(i => { fi('stat'+i+'-num').textContent = fi('s'+i+'n').value; fi('stat'+i+'-label').textContent = fi('s'+i+'l').value; });
+      closeModalDirect(); showToast('Stats updated!');
+    };
+  }
+
+  else if (section === 'about') {
+    fi('modal-title').textContent = 'Edit About Me';
+    body.innerHTML = [1,2,3].map(i => ta('p'+i, fi('about-para'+i).textContent, 'Paragraph ' + i)).join('');
+    saveBtn.onclick = () => {
+      [1,2,3].forEach(i => fi('about-para'+i).textContent = fi('p'+i).value);
+      closeModalDirect(); showToast('About updated!');
+    };
+  }
+
+  else if (section === 'experience') {
+    fi('modal-title').textContent = 'Add New Role';
+    body.innerHTML = `<p style="font-size:0.85rem;color:var(--text3);margin-bottom:1.5rem">This will prepend a new role at the top of your timeline.</p>` + inp('exp-period','','e.g. 2024 — Present') + inp('exp-role','','e.g. Senior Account Executive') + inp('exp-company','','e.g. Acme Corp · Chennai') + ta('exp-ach','','One achievement per line');
+    saveBtn.onclick = () => {
+      const role = fi('exp-role').value; if (!role) { showToast('Role title is required'); return; }
+      const bullets = fi('exp-ach').value.split('\n').filter(l=>l.trim()).map(l=>`<li>${l}</li>`).join('');
+      fi('timeline-list').insertAdjacentHTML('afterbegin', `<div class="timeline-item"><div class="timeline-period">${fi('exp-period').value}</div><div class="timeline-role">${role}</div><div class="timeline-company">${fi('exp-company').value}</div><ul class="timeline-achievements">${bullets}</ul></div>`);
+      closeModalDirect(); showToast('Role added!');
+    };
+  }
+
+  else if (section === 'skills') {
+    fi('modal-title').textContent = 'Add Skill';
+    body.innerHTML = `<div class="form-group" style="margin-bottom:1rem"><label style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)">Category</label><select id="sk-cat" style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:4px;padding:10px 14px;font-size:0.9rem;color:var(--text);outline:none;font-family:'Lato',sans-serif"><option>Sales Skills</option><option>CRM &amp; Tools</option><option>Domains</option><option>Soft Skills</option></select></div>` + inp('sk-name','','e.g. Challenger Sale');
+    saveBtn.onclick = () => {
+      const cat = fi('sk-cat').value; const name = fi('sk-name').value; if (!name) return;
+      document.querySelectorAll('.skill-category').forEach(c => { if (c.querySelector('.skill-cat-title').textContent === cat) c.querySelector('.skill-tags').insertAdjacentHTML('beforeend', `<span class="skill-tag">${name}</span>`); });
+      closeModalDirect(); showToast('Skill added!');
+    };
+  }
+
+  else if (section === 'contact') {
+    fi('modal-title').textContent = 'Edit Contact Info';
+    body.innerHTML = inp('c-email', fi('contact-email').textContent, 'you@email.com') + inp('c-loc', fi('contact-location').textContent, 'City, Country') + inp('c-li', fi('contact-linkedin').textContent, 'linkedin.com/in/...');
+    saveBtn.onclick = () => {
+      fi('contact-email').textContent = fi('c-email').value;
+      fi('contact-location').textContent = fi('c-loc').value;
+      fi('contact-linkedin').textContent = fi('c-li').value;
+      closeModalDirect(); showToast('Contact updated!');
+    };
+  }
+}
+
+function openUpload(type) {
+  const modal = fi('modal');
+  const body = fi('modal-body');
+  const saveBtn = fi('modal-save');
+  const isBlog = type === 'blog';
+  fi('modal-title').textContent = isBlog ? 'Add Blog Post' : 'Add Case Study';
+  modal.style.display = 'flex';
+  const inp = (id, label, ph) => `<div class="form-group" style="margin-bottom:1rem"><label style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)">${label}</label><input id="${id}" placeholder="${ph||''}" style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:4px;padding:10px 14px;font-size:0.9rem;color:var(--text);outline:none;font-family:'Lato',sans-serif"/></div>`;
+  const ta = (id, label, ph) => `<div class="form-group" style="margin-bottom:1rem"><label style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)">${label}</label><textarea id="${id}" placeholder="${ph||''}" style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:4px;padding:10px 14px;font-size:0.9rem;color:var(--text);outline:none;min-height:80px;resize:vertical;font-family:'Lato',sans-serif"></textarea></div>`;
+  body.innerHTML = inp('pt','Title','Enter title') + inp('ptag','Tag / Category', isBlog ? 'e.g. Sales Strategy' : 'e.g. Enterprise Deal') + ta('pex','Excerpt / Summary','Short description...') + inp('pmeta', isBlog ? 'Date & Read Time' : 'Quarter / Label', isBlog ? 'April 2025 · 5 min read' : 'Q1 2025');
+  saveBtn.onclick = () => {
+    const title = fi('pt').value; if (!title) { showToast('Title is required'); return; }
+    const tag = fi('ptag').value; const excerpt = fi('pex').value; const meta = fi('pmeta').value;
+    const parts = isBlog ? meta.split('·') : [meta, 'Case Study'];
+    const card = `<div class="post-card"><div class="post-thumb">${isBlog?'✍️':'📋'}</div><div class="post-body"><span class="post-tag">${tag}</span><div class="post-title">${title}</div><div class="post-excerpt">${excerpt}</div><div class="post-meta"><span>${(parts[0]||'').trim()}</span><span>${(parts[1]||'').trim()}</span></div></div></div>`;
+    const grid = fi(isBlog ? 'blog-grid' : 'cases-grid');
+    grid.lastElementChild.insertAdjacentHTML('beforebegin', card);
+    closeModalDirect(); showToast((isBlog ? 'Blog post' : 'Case study') + ' added!');
+  };
+}
+
+function handlePhoto(event) {
+  const file = event.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    fi('img-placeholder').style.display = 'none';
+    const img = fi('profile-photo');
+    img.src = e.target.result;
+    img.style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+}
+</script>
+</body>
+</html>
