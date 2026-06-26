@@ -54,7 +54,7 @@
   /* HERO */
   #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 64px; }
   .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%; }
-  .hero-tag { display: inline-block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--accent); border: 1px solid var(--accent); padding: 5px 14px; border-radius: 20px; margin-bottom: 1.5rem; }
+  .hero-tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: var(--accent); border: 1px solid var(--accent); padding: 5px 14px; border-radius: 20px; margin-bottom: 1.5rem; white-space: nowrap; }
   .hero-name { font-family: 'Playfair Display', serif; font-size: 3.8rem; font-weight: 700; line-height: 1.1; color: var(--text); margin-bottom: 1rem; }
   .hero-name span { color: var(--accent); }
   .hero-subtitle { font-size: 1.1rem; color: var(--text2); line-height: 1.7; margin-bottom: 2rem; max-width: 440px; }
@@ -64,9 +64,10 @@
   .btn-outline { background: none; color: var(--text); border: 1px solid var(--border); padding: 12px 28px; border-radius: 4px; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; cursor: pointer; text-transform: uppercase; transition: all 0.2s; }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
   .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 1rem; text-align: center; }
-  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--accent); }
-  .stat-label { font-size: 0.75rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-top: 0.25rem; }
+  .stat-card { background: var(--card); border: 1px solid rgba(181, 131, 42, 0.22); border-radius: 14px; padding: 1.7rem 1rem; text-align: center; box-shadow: 0 16px 40px rgba(0,0,0,0.05); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+  .stat-card:hover { transform: translateY(-5px); box-shadow: 0 22px 55px rgba(0,0,0,0.08); border-color: var(--accent); }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.35rem; font-weight: 700; color: var(--accent); }
+  .stat-label { font-size: 0.72rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-top: 0.35rem; line-height: 1.4; }
 
   /* ABOUT */
   .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
@@ -91,12 +92,22 @@
   .timeline-achievements li::before { content: '▹'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
 
   /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
-  .skill-category { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
-  .skill-cat-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+  .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .skill-category { background: var(--card); border: 1px solid rgba(181, 131, 42, 0.18); border-radius: 14px; padding: 1.7rem 1.5rem; box-shadow: 0 16px 40px rgba(0,0,0,0.035); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; position: relative; overflow: hidden; }
+  .skill-category::before { content: ""; position: absolute; top: 0; left: 1.5rem; width: 42px; height: 3px; background: var(--accent); border-radius: 999px; }
+  .skill-category:hover { transform: translateY(-4px); box-shadow: 0 22px 55px rgba(0,0,0,0.065); border-color: rgba(181, 131, 42, 0.35); }
+  .skill-number { font-family: 'Playfair Display', serif; font-size: 1.45rem; color: rgba(181, 131, 42, 0.45); margin-bottom: 1rem; line-height: 1; }
+  .skill-cat-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; line-height: 1.4; }
   .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .skill-tag { background: var(--bg2); color: var(--text2); font-size: 0.8rem; padding: 4px 12px; border-radius: 3px; font-weight: 400; border: 1px solid var(--border); }
+  .skill-tag { background: var(--bg2); color: var(--text2); font-size: 0.78rem; padding: 5px 10px; border-radius: 5px; font-weight: 400; border: 1px solid var(--border); line-height: 1.4; }
+  @media (max-width: 1050px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}
 
+@media (max-width: 650px) {
+  .skills-grid { grid-template-columns: 1fr; }
+} 
+  
   /* BLOG / CASE STUDIES */
   .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
   .post-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
@@ -167,9 +178,9 @@
 <section id="hero">
   <div class="hero-grid">
     <div>
-      <span class="hero-tag" id="hero-tag">GTM Strategist | AI-Led Sales Research | B2B SaaS Growth</span>
+      <span class="hero-tag" id="hero-tag">GTM Strategist | AI-Assisted Research | B2B SaaS Growth</span>
       <h1 class="hero-name" id="hero-name">Dhaval<span>Mehta</span></h1>
-      <p class="hero-subtitle" id="hero-subtitle">I help businesses grow by turning strong conversations into lasting customer relationships and measurable results.</p>
+      <p class="hero-subtitle" id="hero-subtitle">I help B2B teams sharpen targeting, improve messaging, and turn market research into focused GTM execution.</p>
       <div class="hero-ctas">
         <button class="btn-outline" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
       </div>
@@ -177,17 +188,17 @@
     <div>
       <div class="hero-stats">
         <div class="stat-card">
-          <div class="stat-num" id="stat1-num">$1M+</div>
-          <div class="stat-label" id="stat1-label">Revenue Closed</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num" id="stat2-num">8+</div>
-          <div class="stat-label" id="stat2-label">Years Experience</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num" id="stat3-num">95%</div>
-          <div class="stat-label" id="stat3-label">Avg Target Attainment</div>
-        </div>
+        <div class="stat-num" id="stat1-num">$1M+</div>
+        <div class="stat-label" id="stat1-label">Revenue Influenced</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat2-num">35+</div>
+        <div class="stat-label" id="stat2-label">B2B Accounts Managed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat3-num">2</div>
+        <div class="stat-label" id="stat3-label">Markets Worked In</div>
+      </div>
       </div>
       <div style="text-align:center;margin-top:1.5rem">
       </div>
@@ -212,21 +223,8 @@
         <p id="about-para2">For me, good sales is not about pushing harder. It is about understanding the problem better, asking sharper questions, and making the next step clear.</p>
         <p id="about-para3">My work spans B2B sales, SaaS, GTM research, outreach, and customer conversations across India and North America. I’m also exploring how AI can make GTM work sharper — from research and targeting to messaging and execution.</p>
         <p id="about-para4">But the core stays the same.</p>
-        <p id="about-para3">Listen well. Tell the story clearly. Build trust. Follow through.</p>
-        <p id="about-para3">That is the approach I bring to every conversation.</p>
-        <div class="about-highlights">
-          <div class="highlight-item">
-            <div class="highlight-icon">🎯</div>
-            <div class="highlight-text"><strong id="h1-title">Top Performer</strong><span id="h1-sub">Consistent quota over-achiever across all roles</span></div>
-          </div>
-          <div class="highlight-item">
-            <div class="highlight-icon">🤝</div>
-            <div class="highlight-text"><strong id="h2-title">Relationship Builder</strong><span id="h2-sub">Long-term client partnerships and high retention rates</span></div>
-          </div>
-          <div class="highlight-item">
-            <div class="highlight-icon">📊</div>
-            <div class="highlight-text"><strong id="h3-title">Data-Driven</strong><span id="h3-sub">Pipeline management and CRM-first approach</span></div>
-          </div>
+        <p id="about-para5">Listen well. Tell the story clearly. Build trust. Follow through.</p>
+        <p id="about-para6">That is the approach I bring to every conversation.</p>
         </div>
       </div>
     </div>
@@ -400,52 +398,61 @@
 </div>
 </div>
   <div style="max-width:1100px;margin:0 auto;padding:5rem 2rem" id="skills">
-    <div class="section-label">Expertise</div>
-    <div class="section-title">Skills</div>
-    <div class="divider"></div>
-    <div class="skills-grid" id="skills-grid">
-      <div class="skill-category">
-        <div class="skill-cat-title">Sales</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Consultative Selling</span>
-          <span class="skill-tag">Negotiation & Closing</span>
-          <span class="skill-tag">Territory Sales</span>
-          <span class="skill-tag">Product Demonstration</span>
-          <span class="skill-tag">Account Management</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <div class="skill-cat-title">Growth</div>
-        <div class="skill-tags">
-          <span class="skill-tag">GTM Strategy</span>
-          <span class="skill-tag">Pipeline Management</span>
-          <span class="skill-tag">Forecasting</span>
-          <span class="skill-tag">Up sell & cross sell</span>
-          <span class="skill-tag">Lead Qualification</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <div class="skill-cat-title">Customer Success</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Customer Onboarding</span>
-          <span class="skill-tag">Renewals & Retention</span>
-          <span class="skill-tag">Stakeholder Management</span>
-          <span class="skill-tag">CSAT Improvement</span>
-          <span class="skill-tag">Relationship Management</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <div class="skill-cat-title">Execution</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Data-Driven Outreach</span>
-          <span class="skill-tag">Persona Research</span>
-          <span class="skill-tag">Competitor Analysis</span>
-          <span class="skill-tag">Cross-Functional Collaboration</span>
-          <span class="skill-tag">Operational Reporting</span>
-        </div>
+  <div class="section-label">Expertise</div>
+  <div class="section-title">Skills</div>
+  <div class="divider"></div>
+
+  <div class="skills-grid" id="skills-grid">
+
+    <div class="skill-category">
+      <div class="skill-number">01</div>
+      <div class="skill-cat-title">GTM Strategy</div>
+      <div class="skill-tags">
+        <span class="skill-tag">ICP Development</span>
+        <span class="skill-tag">Market Segmentation</span>
+        <span class="skill-tag">Positioning</span>
+        <span class="skill-tag">Messaging</span>
+        <span class="skill-tag">GTM Planning</span>
       </div>
     </div>
-   </div>
+
+    <div class="skill-category">
+      <div class="skill-number">02</div>
+      <div class="skill-cat-title">Sales & Relationships</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Discovery</span>
+        <span class="skill-tag">Consultative Selling</span>
+        <span class="skill-tag">Negotiation</span>
+        <span class="skill-tag">Account Management</span>
+        <span class="skill-tag">Stakeholder Management</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-number">03</div>
+      <div class="skill-cat-title">Research & Intelligence</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Persona Research</span>
+        <span class="skill-tag">Competitor Analysis</span>
+        <span class="skill-tag">Account Prioritization</span>
+        <span class="skill-tag">Market Mapping</span>
+        <span class="skill-tag">AI-Assisted Research</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-number">04</div>
+      <div class="skill-cat-title">Execution</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Outbound Strategy</span>
+        <span class="skill-tag">Pipeline Management</span>
+        <span class="skill-tag">CRM Hygiene</span>
+        <span class="skill-tag">Reporting</span>
+        <span class="skill-tag">Cross-Functional Collaboration</span>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <!-- BLOG -->
