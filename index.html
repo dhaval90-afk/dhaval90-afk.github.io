@@ -37,13 +37,15 @@
 
   /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--nav); border-bottom: 1px solid var(--border); backdrop-filter: blur(8px); }
-  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; }
-  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--accent); letter-spacing: 0.01em; }
-  .nav-links { display: flex; gap: 2rem; align-items: center; }
-  .nav-links a { font-size: 0.85rem; color: var(--text2); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; transition: color 0.2s; }
+  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--accent); letter-spacing: 0.01em; white-space: nowrap; flex-shrink: 0; }
+  .nav-links { display: flex; gap: 1.2rem; align-items: center; flex-shrink: 0; }
+  .nav-links a { font-size: 0.74rem; color: var(--text2); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; transition: color 0.2s; white-space: nowrap; }
   .nav-links a:hover { color: var(--accent); }
-  .theme-btn { background: none; border: 1px solid var(--border); color: var(--text2); cursor: pointer; padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; font-family: 'Lato', sans-serif; font-weight: 700; letter-spacing: 0.06em; transition: all 0.2s; }
+  .theme-btn { background: none; border: 1px solid var(--border); color: var(--text2); cursor: pointer; padding: 5px 12px; border-radius: 20px; font-size: 0.72rem; font-family: 'Lato', sans-serif; font-weight: 700; letter-spacing: 0.06em; transition: all 0.2s; white-space: nowrap; flex-shrink: 0; }
   .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .nav-follow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-decoration: none; border: 1px solid var(--accent); color: var(--accent); padding: 5px 12px; border-radius: 20px; transition: all 0.2s; white-space: nowrap; font-family: 'Lato', sans-serif; flex-shrink: 0; }
+  .nav-follow:hover { background: var(--accent); color: #fff; }
 
   /* SECTIONS */
   section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
@@ -53,31 +55,33 @@
 
   /* HERO */
   #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 64px; }
-  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%; }
-  .hero-tag { display: inline-block; font-size: 0.70rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: var(--accent); border: 1px solid var(--accent); padding: 5px 14px; border-radius: 20px; margin-bottom: 1.5rem; white-space: nowrap; }
-  .hero-name { font-family: 'Playfair Display', serif; font-size: 3.8rem; font-weight: 700; line-height: 1.1; color: var(--text); margin-bottom: 1rem; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: center; width: 100%; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; }
+  .hero-right { display: flex; flex-direction: column; gap: 2.5rem; align-items: center; }
+  .hero-tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: var(--accent); border: 1px solid var(--accent); padding: 5px 14px; border-radius: 20px; margin-bottom: 1.2rem; white-space: nowrap; align-self: flex-start; }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: 4.2rem; font-weight: 700; line-height: 1.05; color: var(--text); margin-bottom: 1.2rem; }
   .hero-name span { color: var(--accent); }
-  .hero-subtitle { font-size: 1.1rem; color: var(--text2); line-height: 1.7; margin-bottom: 2rem; max-width: 440px; }
+  .hero-subtitle { font-size: 1.05rem; color: var(--text2); line-height: 1.8; margin-bottom: 2.2rem; max-width: 420px; }
   .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary { background: var(--accent); color: #fff; border: none; padding: 12px 28px; border-radius: 4px; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; cursor: pointer; text-transform: uppercase; transition: background 0.2s; }
-  .btn-primary:hover { background: var(--accent2); }
+  .btn-primary { background: var(--accent); color: #fff; border: none; padding: 12px 28px; border-radius: 4px; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; cursor: pointer; text-transform: uppercase; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(181,131,42,0.35); }
   .btn-outline { background: none; color: var(--text); border: 1px solid var(--border); padding: 12px 28px; border-radius: 4px; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; cursor: pointer; text-transform: uppercase; transition: all 0.2s; }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .stat-card { background: var(--card); border: 1px solid rgba(181, 131, 42, 0.22); border-radius: 14px; padding: 1.7rem 1rem; text-align: center; box-shadow: 0 16px 40px rgba(0,0,0,0.05); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
-  .stat-card:hover { transform: translateY(-5px); box-shadow: 0 22px 55px rgba(0,0,0,0.08); border-color: var(--accent); }
-  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.35rem; font-weight: 700; color: var(--accent); }
-  .stat-label { font-size: 0.72rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-top: 0.35rem; line-height: 1.4; }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .hero-photo-wrap { width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 3px solid var(--accent); flex-shrink: 0; background: var(--bg3); box-shadow: 0 8px 32px rgba(181,131,42,0.2); }
+  .hero-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; width: 100%; }
+  .stat-card { background: var(--card); border: 1px solid rgba(181,131,42,0.22); border-radius: 12px; padding: 1.2rem 0.6rem; text-align: center; box-shadow: 0 8px 24px rgba(0,0,0,0.05); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+  .stat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.09); border-color: var(--accent); }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+  .stat-label { font-size: 0.62rem; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-top: 0.3rem; line-height: 1.4; }
 
   /* ABOUT */
-  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
-  .about-img { width: 100%; aspect-ratio: 3/4; background: var(--bg3); border-radius: 4px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+  .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: start; }
   .about-content p { color: var(--text2); margin-bottom: 1.2rem; font-size: 1.02rem; }
-  .about-highlights { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
-  .highlight-item { display: flex; gap: 1rem; align-items: flex-start; }
-  .highlight-icon { width: 36px; height: 36px; background: var(--accent); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; }
-  .highlight-text strong { display: block; font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
-  .highlight-text span { font-size: 0.82rem; color: var(--text3); }
+  .about-highlights { display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem; }
+  .highlight-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem 1.4rem; border-left: 3px solid var(--accent); }
+  .highlight-card strong { display: block; font-size: 0.82rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; letter-spacing: 0.03em; }
+  .highlight-card span { font-size: 0.82rem; color: var(--text3); line-height: 1.5; }
 
   /* EXPERIENCE */
   .timeline { position: relative; }
@@ -93,32 +97,27 @@
 
   /* SKILLS */
   .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem; }
-  .skill-category { background: linear-gradient(180deg, #29251f 0%, #1f1c18 100%); border: 1.6px solid rgba(212, 164, 76, 0.72); border-radius: 16px; padding: 2rem 1.3rem; min-height: 245px; box-shadow: 0 18px 45px rgba(0,0,0,0.10); transition: transform 0.2*s ease, box-shadow 0.28s ease, border-color 0.28s ease; test-align: center; position: relative; overflow: hidden; }
+  .skill-category { background: linear-gradient(180deg, #29251f 0%, #1f1c18 100%); border: 1.6px solid rgba(212,164,76,0.72); border-radius: 16px; padding: 2rem 1.3rem; min-height: 245px; box-shadow: 0 18px 45px rgba(0,0,0,0.10); transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease; position: relative; overflow: hidden; }
   .skill-category::before { content: ""; position: absolute; top: 0; left: 50%; width: 52px; height: 3px; background: var(--accent); border-radius: 999px; transform: translateX(-50%); }
-  .skill-category:hover { transform: translateY(-6px); box-shadow: 0 24px 58px rgba(0,0,0,0.016); border-color: var(--accent2); }
-  .skill-number { display: none; }
-  .skill-cat-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: #d4a44c; margin-bottom: 1.4rem; line-height: 1.4; white-space: nowrap; text-align: center; }
+  .skill-category:hover { transform: translateY(-6px); box-shadow: 0 24px 58px rgba(0,0,0,0.16); border-color: var(--accent2); }
+  .skill-cat-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: #d4a44c; margin-bottom: 1.4rem; line-height: 1.4; text-align: center; }
   .skill-tags { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; }
-  .skill-tag { background: transparent; border: none; padding: 0; border-radius: 0; color: rgba(240, 237, 232, 0.86); font-size: 0.86rem; font-weight: 400; line-height: 1.5; white-space: nowrap; text-align: center}
-  
-  /* Responsive */
+  .skill-tag { color: rgba(240,237,232,0.86); font-size: 0.86rem; font-weight: 400; line-height: 1.5; text-align: center; }
+
   @media (max-width: 1050px) {
-  .skills-grid { grid-template-columns: repeat(2, 1fr); }
-  .skill-category { min-height: 225px; }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .skill-category { min-height: 225px; }
+  }
+  @media (max-width: 650px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .skill-category { min-height: auto; }
   }
 
-  @media (max-width: 650px) {
-  .skills-grid { grid-template-columns: 1fr; } 
-  .skill-category { min-height: auto; }
-  .skill-cat-title,
-  .skill-tag { white-space: normal; }
-  }
-  
   /* BLOG / CASE STUDIES */
   .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
   .post-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
   .post-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
-  .post-thumb { height: 160px; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; border-bottom: 1px solid var(--border); }
+  .post-thumb { height: 160px; background: var(--bg3); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); }
   .post-body { padding: 1.4rem; }
   .post-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; display: block; }
   .post-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.6rem; line-height: 1.3; }
@@ -132,19 +131,11 @@
   .contact-icon { width: 42px; height: 42px; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
   .contact-item-text strong { display: block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); margin-bottom: 2px; }
   .contact-item-text a, .contact-item-text span { font-size: 0.95rem; color: var(--text); text-decoration: none; }
-  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
   .form-group label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); }
   .form-group input, .form-group textarea { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 10px 14px; font-family: 'Lato', sans-serif; font-size: 0.95rem; color: var(--text); transition: border-color 0.2s; outline: none; }
   .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
   .form-group textarea { min-height: 120px; resize: vertical; }
-
-  /* MODAL */
-  .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 2rem; }
-  .modal { background: var(--card); border-radius: 8px; padding: 2.5rem; max-width: 600px; width: 100%; border: 1px solid var(--border); max-height: 90vh; overflow-y: auto; position: relative; }
-  .modal h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--text); margin-bottom: 1.5rem; }
-  .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text3); }
-  .modal-actions { display: flex; gap: 1rem; margin-top: 1.5rem; }
 
   /* TOAST */
   .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 4px; font-size: 0.85rem; font-weight: 700; z-index: 300; opacity: 0; transform: translateY(10px); transition: all 0.3s; pointer-events: none; }
@@ -155,7 +146,8 @@
     .hero-name { font-size: 2.6rem; }
     .section-title { font-size: 1.8rem; }
     .hero-stats { grid-template-columns: 1fr 1fr; }
-    .nav-links a:not(:last-child) { display: none; }
+    .nav-links a:not(.nav-follow) { display: none; }
+    .hero-right { margin-top: 2rem; }
   }
 </style>
 </head>
@@ -173,7 +165,7 @@
       <a href="#blog">Blog</a>
       <a href="#casestudies">Case Studies</a>
       <a href="#contact">Contact</a>
-      <a href="https://www.linkedin.com/company/sales-cx/" target="_blank" style="font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-decoration:none;border:1px solid var(--accent);color:var(--accent);padding:6px 14px;border-radius:20px;transition:all 0.2s;white-space:nowrap;font-family:'Lato',sans-serif" onmouseover="this.style.background='var(--accent)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--accent)'">Follow Sales & CX ↗</a>
+      <a href="https://www.linkedin.com/company/sales-cx/" target="_blank" class="nav-follow" title="Follow Sales & CX on LinkedIn">S&CX ↗</a>
       <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">☾ Dark</button>
     </div>
   </div>
@@ -184,8 +176,7 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-grid">
-    <div>
-      <div>
+    <div class="hero-left">
       <span class="hero-tag" id="hero-tag">GTM Strategist · Workhall · B2B SaaS</span>
       <h1 class="hero-name" id="hero-name">Dhaval<br><span>Mehta</span></h1>
       <p class="hero-subtitle" id="hero-subtitle">Good sales isn't about pushing harder.<br>It's about asking better questions, telling the story clearly, and making the next step obvious.</p>
@@ -194,27 +185,24 @@
         <button class="btn-outline" onclick="document.querySelector('#blog').scrollIntoView({behavior:'smooth'})">Read My Work</button>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:2rem;align-items:center">
-      <div style="width:220px;height:220px;border-radius:50%;overflow:hidden;border:3px solid var(--accent);flex-shrink:0">
-        <img src="Photo.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:top"/>
+    <div class="hero-right">
+      <div class="hero-photo-wrap">
+        <img src="Photo.jpeg" alt="Dhaval Mehta"/>
       </div>
       <div class="hero-stats">
         <div class="stat-card">
-        <div class="stat-num" id="stat1-num">$1M+</div>
-        <div class="stat-label" id="stat1-label">Revenue Influenced</div>
+          <div class="stat-num" id="stat1-num">$1M+</div>
+          <div class="stat-label" id="stat1-label">Revenue Influenced</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="stat2-num">35+</div>
+          <div class="stat-label" id="stat2-label">B2B Accounts Managed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="stat3-num">2</div>
+          <div class="stat-label" id="stat3-label">Markets Worked In</div>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-num" id="stat2-num">35+</div>
-        <div class="stat-label" id="stat2-label">B2B Accounts Managed</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" id="stat3-num">2</div>
-        <div class="stat-label" id="stat3-label">Markets Worked In</div>
-      </div>
-      </div>
-      <div style="text-align:center;margin-top:1.5rem">
-       </div>
-    </div>
     </div>
   </div>
 </section>
@@ -224,20 +212,30 @@
   <div style="max-width:1100px;margin:0 auto;padding:5rem 2rem" id="about">
     <div class="section-label">Who I Am</div>
     <div class="about-grid">
-      <div>
-        <div class="about-img" id="about-img-wrap">
-          <img id="profile-photo" src="Photo.jpeg" style="display:block;width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
-        </div>
-      </div>
       <div class="about-content">
         <div class="section-title" style="font-size:2rem;margin-bottom:1rem">About Me</div>
         <div class="divider"></div>
-        <p id="about-para1">Hi, I’m Dhaval - I work at the intersection of sales, strategy, and people.</p>
+        <p id="about-para1">Hi, I'm Dhaval — I work at the intersection of sales, strategy, and people.</p>
         <p id="about-para2">For me, good sales is not about pushing harder. It is about understanding the problem better, asking sharper questions, and making the next step clear.</p>
-        <p id="about-para3">My work spans B2B sales, SaaS, GTM research, outreach, and customer conversations across India and North America. I’m also exploring how AI can make GTM work sharper — from research and targeting to messaging and execution.</p>
-        <p id="about-para4">But the core stays the same.</p>
+        <p id="about-para3">My work spans B2B sales, SaaS, GTM research, outreach, and customer conversations across India and North America. I'm also exploring how AI can make GTM work sharper — from research and targeting to messaging and execution.</p>
         <p id="about-para5">Listen well. Tell the story clearly. Build trust. Follow through.</p>
-        <p id="about-para6">That is the approach I bring to every conversation.</p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <strong>Currently at Workhall</strong>
+          <span>GTM Strategist leading US market expansion — ICP building, AI-assisted research, and outbound strategy.</span>
+        </div>
+        <div class="highlight-card">
+          <strong>10+ Years Across 2 Markets</strong>
+          <span>B2B sales, customer success, and co-founding experience across India and Canada.</span>
+        </div>
+        <div class="highlight-card">
+          <strong>Science → Sales</strong>
+          <span>MSc Molecular Medicine. The hypothesis-driven thinking never left — it just moved into GTM.</span>
+        </div>
+        <div class="highlight-card">
+          <strong>Writing on Sales & CX</strong>
+          <span>Practical frameworks, real situations, no fluff — published weekly on the Sales & CX LinkedIn page.</span>
         </div>
       </div>
     </div>
@@ -251,40 +249,39 @@
   <div class="divider"></div>
   <div class="timeline" id="timeline-list">
     <div class="timeline-item">
-      <div class="timeline-period">2026-Present</div>
+      <div class="timeline-period">2026–Present</div>
       <div class="timeline-role">GTM Strategist</div>
       <div class="timeline-company">Workhall | India</div>
       <ul class="timeline-achievements">
-        <li>Built ICPs and GTM segments for Workhall’s US market expansion across priority industries and buyer personas.</li>
+        <li>Built ICPs and GTM segments for Workhall's US market expansion across priority industries and buyer personas.</li>
         <li>Created AI-assisted workflows for prospect research, account scoring, competitor analysis, and outbound messaging.</li>
         <li>Developed positioning and content strategies to support sales outreach, LinkedIn growth, and product-led GTM execution.</li>
       </ul>
     </div>
-  <div class="timeline" id="timeline-list">
     <div class="timeline-item">
-      <div class="timeline-period">2018-2025</div>
+      <div class="timeline-period">2018–2025</div>
       <div class="timeline-role">Sales and Customer Success Manager</div>
       <div class="timeline-company">New Optical Palace | Canada</div>
       <ul class="timeline-achievements">
-        <li>Built and converted pipeline across 35+ B2B accounts, contributing to $1M+ in revenue</li>
-        <li>Managed the full sales cycle from outreach and discovery to negotiation and closing</li>
-        <li>Worked cross-functionally to resolve 90% of customer issues while maintaining 4.5/5 CSAT and supporting retention goals</li>
+        <li>Built and converted pipeline across 35+ B2B accounts, contributing to $1M+ in revenue.</li>
+        <li>Managed the full sales cycle from outreach and discovery to negotiation and closing.</li>
+        <li>Worked cross-functionally to resolve 90% of customer issues while maintaining 4.5/5 CSAT and supporting retention goals.</li>
       </ul>
     </div>
     <div class="timeline-item">
-      <div class="timeline-period">2017 — 2020</div>
+      <div class="timeline-period">2017–2020</div>
       <div class="timeline-role">Co-Founder</div>
       <div class="timeline-company">Dokk Clinics | India</div>
       <ul class="timeline-achievements">
-        <li>Planned and executed outreach campaigns, achieving 90% of a $500K annual revenue target in the first year</li>
-        <li>Built partnerships with doctors and clinical institutions to drive product adoption and retention</li>
-        <li>Managed operations, vendor coordination, and service delivery while growing a CGM-based remote monitoring offering</li>
+        <li>Planned and executed outreach campaigns, achieving 90% of a $500K annual revenue target in the first year.</li>
+        <li>Built partnerships with doctors and clinical institutions to drive product adoption and retention.</li>
+        <li>Managed operations, vendor coordination, and service delivery while growing a CGM-based remote monitoring offering.</li>
       </ul>
     </div>
     <div class="timeline-item">
-      <div class="timeline-period">2015 – 2017</div>
+      <div class="timeline-period">2015–2017</div>
       <div class="timeline-role">Account Executive</div>
-      <div class="timeline-company">InterpretOmics | India </div>
+      <div class="timeline-company">InterpretOmics | India</div>
       <ul class="timeline-achievements">
         <li>Built pipeline through targeted outreach to clinical laboratories and hospital procurement teams.</li>
         <li>Delivered value-led pitches aligned to compliance and operational requirements in regulated healthcare environments.</li>
@@ -294,129 +291,114 @@
   </div>
 </section>
 
+<!-- EDUCATION -->
+<div style="background:var(--bg2)">
+  <div style="max-width:1100px;margin:0 auto;padding:5rem 2rem" id="education">
+    <div class="section-label">Background</div>
+    <div class="section-title">Education & Certifications</div>
+    <div class="divider"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem">
+
+      <div>
+        <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem">Education</div>
+        <div style="display:flex;flex-direction:column;gap:1.2rem">
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem;border-left:4px solid var(--accent)">
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:0.3rem">2021 – 2022</div>
+            <div style="font-weight:700;color:var(--text);margin-bottom:0.2rem">Pgdip — Marketing Management</div>
+            <div style="font-size:0.88rem;color:var(--text2)">Seneca College · Canada</div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem;border-left:4px solid var(--accent)">
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:0.3rem">2011 – 2012</div>
+            <div style="font-weight:700;color:var(--text);margin-bottom:0.2rem">M.Sc — Molecular Medicine</div>
+            <div style="font-size:0.88rem;color:var(--text2)">University of Sheffield · UK</div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem;border-left:4px solid var(--accent)">
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:0.3rem">2007 – 2011</div>
+            <div style="font-weight:700;color:var(--text);margin-bottom:0.2rem">B.Tech — Biotechnology</div>
+            <div style="font-size:0.88rem;color:var(--text2)">Anna University · India</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem">Certifications</div>
+        <div style="display:flex;flex-direction:column;gap:0.85rem">
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+              <div>
+                <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">Tools of the Trade: Linux and SQL</div>
+                <div style="font-size:0.8rem;color:var(--text2)">Google · Apr 2026</div>
+              </div>
+              <a href="https://www.coursera.org/verify/D9T1D6V6F3MW" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
+            </div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+              <div>
+                <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">Foundations of Cybersecurity</div>
+                <div style="font-size:0.8rem;color:var(--text2)">Google · Mar 2026</div>
+              </div>
+              <a href="https://coursera.org/verify/QXSBHUWJYNX6" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
+            </div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+              <div>
+                <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">Connect and Protect: Networks and Network Security</div>
+                <div style="font-size:0.8rem;color:var(--text2)">Google · Mar 2026</div>
+              </div>
+              <a href="https://coursera.org/verify/NB1XOAF6GF62" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
+            </div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+              <div>
+                <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">Play It Safe: Manage Security Risks</div>
+                <div style="font-size:0.8rem;color:var(--text2)">Google · Mar 2026</div>
+              </div>
+              <a href="https://coursera.org/verify/0HS2EJ9WY0VT" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
+            </div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+              <div>
+                <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">Fundamentals of Digital Marketing</div>
+                <div style="font-size:0.8rem;color:var(--text2)">Google Digital Garage · Feb 2022</div>
+              </div>
+              <a href="https://learndigital.withgoogle.com/digitalgarage/validate/0BZ-HZN-NOX" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
+            </div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+              <div>
+                <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">Inbound · Inbound Marketing · Inbound Sales</div>
+                <div style="font-size:0.8rem;color:var(--text2)">HubSpot Academy · Nov 2021</div>
+              </div>
+              <a href="https://app.hubspot.com/academy/achievements/5adf3d3b9b6b4d07b5319f688fdde0a4" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
+            </div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+              <div>
+                <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">DNA Decoded</div>
+                <div style="font-size:0.8rem;color:var(--text2)">McMaster University · Sep 2020</div>
+              </div>
+              <a href="https://coursera.org/verify/WEXHQ4N6VXGK" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- SKILLS -->
- <div style="background:var(--bg2)">
-<div style="max-width:1100px;margin:0 auto;padding:5rem 2rem" id="education">
-  <div class="section-label">Background</div>
-  <div class="section-title">Education & Certifications</div>
-  <div class="divider"></div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem">
-
-    <div>
-      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem">Education</div>
-      <div style="display:flex;flex-direction:column;gap:1.2rem">
-
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem;border-left:4px solid var(--accent)">
-          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:0.3rem">2021 – 2022</div>
-          <div style="font-weight:700;color:var(--text);margin-bottom:0.2rem">Pgdip — Marketing Management</div>
-          <div style="font-size:0.88rem;color:var(--text2)">Seneca College · Canada</div>
-        </div>
-
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem;border-left:4px solid var(--accent)">
-          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:0.3rem">2011 – 2012</div>
-          <div style="font-weight:700;color:var(--text);margin-bottom:0.2rem">M.Sc — Molecular Medicine</div>
-          <div style="font-size:0.88rem;color:var(--text2)">University of Sheffield · UK</div>
-        </div>
-
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem;border-left:4px solid var(--accent)">
-          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:0.3rem">2007 – 2011</div>
-          <div style="font-weight:700;color:var(--text);margin-bottom:0.2rem">B.Tech — Biotechnology</div>
-          <div style="font-size:0.88rem;color:var(--text2)">Anna University · India</div>
-        </div>
-
-      </div>
-    </div>
-
-    <div>
-      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem">Certifications</div>
-      <div style="display:flex;flex-direction:column;gap:0.85rem">
-
-         <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-            <div>
-              <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">Tools of the Trade: Linux and SQL</div>
-              <div style="font-size:0.8rem;color:var(--text2)">Google · Apr 2026</div>
-            </div>
-            <a href="https://www.coursera.org/verify/D9T1D6V6F3MW" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
-          </div>
-        </div>
-        
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-            <div>
-              <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">Foundations of Cybersecurity</div>
-              <div style="font-size:0.8rem;color:var(--text2)">Google · Mar 2026</div>
-            </div>
-            <a href="https://coursera.org/verify/QXSBHUWJYNX6" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
-          </div>
-        </div>
-
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-            <div>
-              <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">Connect and Protect: Networks and Network Security</div>
-              <div style="font-size:0.8rem;color:var(--text2)">Google · Mar 2026</div>
-            </div>
-            <a href="https://coursera.org/verify/NB1XOAF6GF62" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
-          </div>
-        </div>
-
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-            <div>
-              <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">Play It Safe: Manage Security Risks</div>
-              <div style="font-size:0.8rem;color:var(--text2)">Google · Mar 2026</div>
-            </div>
-            <a href="https://coursera.org/verify/0HS2EJ9WY0VT" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
-          </div>
-        </div>
-
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-            <div>
-              <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">Fundamentals of Digital Marketing</div>
-              <div style="font-size:0.8rem;color:var(--text2)">Google Digital Garage · Feb 2022</div>
-            </div>
-            <a href="https://learndigital.withgoogle.com/digitalgarage/validate/0BZ-HZN-NOX" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
-          </div>
-        </div>
-
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-            <div>
-              <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">Inbound · Inbound Marketing · Inbound Sales</div>
-              <div style="font-size:0.8rem;color:var(--text2)">HubSpot Academy · Nov 2021</div>
-            </div>
-            <a href="https://app.hubspot.com/academy/achievements/5adf3d3b9b6b4d07b5319f688fdde0a4" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
-          </div>
-        </div>
-
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-            <div>
-              <div style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:0.2rem">DNA Decoded</div>
-              <div style="font-size:0.8rem;color:var(--text2)">McMaster University · Sep 2020</div>
-            </div>
-            <a href="https://coursera.org/verify/WEXHQ4N6VXGK" target="_blank" style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap;border:1px solid var(--accent);padding:4px 10px;border-radius:20px;flex-shrink:0">View →</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</div>
-</div>
-  </div>
-</div>
-</div>
-  <div style="max-width:1100px;margin:0 auto;padding:5rem 2rem" id="skills">
+<div style="max-width:1100px;margin:0 auto;padding:5rem 2rem" id="skills">
   <div class="section-label">Expertise</div>
   <div class="section-title">Skills</div>
   <div class="divider"></div>
-
   <div class="skills-grid" id="skills-grid">
-
     <div class="skill-category">
       <div class="skill-cat-title">GTM Strategy</div>
       <div class="skill-tags">
@@ -427,7 +409,6 @@
         <span class="skill-tag">GTM Planning</span>
       </div>
     </div>
-
     <div class="skill-category">
       <div class="skill-cat-title">Sales Relationships</div>
       <div class="skill-tags">
@@ -438,7 +419,6 @@
         <span class="skill-tag">Stakeholder Management</span>
       </div>
     </div>
-
     <div class="skill-category">
       <div class="skill-cat-title">Market Intelligence</div>
       <div class="skill-tags">
@@ -449,7 +429,6 @@
         <span class="skill-tag">AI-Assisted Research</span>
       </div>
     </div>
-
     <div class="skill-category">
       <div class="skill-cat-title">Execution</div>
       <div class="skill-tags">
@@ -460,106 +439,101 @@
         <span class="skill-tag">Team Collaboration</span>
       </div>
     </div>
-
   </div>
 </div>
 
 <!-- BLOG -->
 <section id="blog">
-  <div class="section-label">Thoughts &amp; Insights</div>
-  <div class="section-title">Blog &amp; Articles</div>
+  <div class="section-label">Thoughts & Insights</div>
+  <div class="section-title">Blog & Articles</div>
   <div class="divider"></div>
   <div class="posts-grid" id="blog-grid">
-
-  <a href="blog-post-1.html" style="text-decoration:none;color:inherit">
-    <div class="post-card">
-      <div class="post-thumb" style="background:#1a1916;display:flex;align-items:center;justify-content:center;padding:1.2rem">
-  <div style="text-align:center">
-    <div style="font-size:1.1rem;color:#d4a44c;font-family:'Playfair Display',serif;font-style:italic;line-height:1.4">"Nobody buys a product."</div>
-    <div style="font-size:0.6rem;color:#5f5e5a;letter-spacing:0.14em;text-transform:uppercase;margin-top:8px">Storytelling</div>
-  </div>
-</div>
-      <div class="post-body">
-        <span class="post-tag">Sales Strategy</span>
-        <div class="post-title">How I Use Storytelling to Close Deals Faster</div>
-        <div class="post-excerpt">Nobody buys a product — they buy a future version of themselves. Here's the framework I use in every meeting.</div>
-        <div class="post-meta"><span>April 2026</span><span>4 min read</span></div>
+    <a href="blog-post-1.html" style="text-decoration:none;color:inherit">
+      <div class="post-card">
+        <div class="post-thumb" style="background:#1a1916;padding:1.2rem">
+          <div style="text-align:center">
+            <div style="font-size:1.1rem;color:#d4a44c;font-family:'Playfair Display',serif;font-style:italic;line-height:1.4">"Nobody buys a product."</div>
+            <div style="font-size:0.6rem;color:#5f5e5a;letter-spacing:0.14em;text-transform:uppercase;margin-top:8px">Storytelling</div>
+          </div>
+        </div>
+        <div class="post-body">
+          <span class="post-tag">Sales Strategy</span>
+          <div class="post-title">How I Use Storytelling to Close Deals Faster</div>
+          <div class="post-excerpt">Nobody buys a product — they buy a future version of themselves. Here's the framework I use in every meeting.</div>
+          <div class="post-meta"><span>April 2026</span><span>4 min read</span></div>
+        </div>
       </div>
-    </div>
-  </a>
-
-  <a href="blog-post-2.html" style="text-decoration:none;color:inherit">
-    <div class="post-card">
-     <div class="post-thumb" style="background:#1a1916;display:flex;align-items:center;justify-content:center;padding:1.2rem">
-  <div style="text-align:center">
-    <div style="font-size:1.1rem;color:#85b7eb;font-family:'Playfair Display',serif;font-style:italic;line-height:1.4">"The deal is already half lost."</div>
-    <div style="font-size:0.6rem;color:#5f5e5a;letter-spacing:0.14em;text-transform:uppercase;margin-top:8px">Preparation</div>
-  </div>
-</div>
-      <div class="post-body">
-        <span class="post-tag">Sales Strategy</span>
-        <div class="post-title">Why Most Salespeople Lose Deals Before the First Meeting</div>
-        <div class="post-excerpt">The deal is half won or lost before you walk through the door. Here's what actually matters.</div>
-        <div class="post-meta"><span>April 2026</span><span>4 min read</span></div>
+    </a>
+    <a href="blog-post-2.html" style="text-decoration:none;color:inherit">
+      <div class="post-card">
+        <div class="post-thumb" style="background:#1a1916;padding:1.2rem">
+          <div style="text-align:center">
+            <div style="font-size:1.1rem;color:#85b7eb;font-family:'Playfair Display',serif;font-style:italic;line-height:1.4">"The deal is already half lost."</div>
+            <div style="font-size:0.6rem;color:#5f5e5a;letter-spacing:0.14em;text-transform:uppercase;margin-top:8px">Preparation</div>
+          </div>
+        </div>
+        <div class="post-body">
+          <span class="post-tag">Sales Strategy</span>
+          <div class="post-title">Why Most Salespeople Lose Deals Before the First Meeting</div>
+          <div class="post-excerpt">The deal is half won or lost before you walk through the door. Here's what actually matters.</div>
+          <div class="post-meta"><span>April 2026</span><span>4 min read</span></div>
+        </div>
       </div>
-    </div>
-  </a>
-
-</div>
-<div style="text-align:center;margin-top:2rem">
-  <a href="blog.html" style="display:inline-block;border:1px solid rgba(26,25,22,0.15);color:#4a4843;text-decoration:none;padding:10px 28px;border-radius:4px;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.2s" onmouseover="this.style.borderColor='#b5832a';this.style.color='#b5832a'" onmouseout="this.style.borderColor='rgba(26,25,22,0.15)';this.style.color='#4a4843'">View All Articles →</a>
-</div>
+    </a>
+  </div>
+  <div style="text-align:center;margin-top:2rem">
+    <a href="blog.html" style="display:inline-block;border:1px solid rgba(26,25,22,0.15);color:#4a4843;text-decoration:none;padding:10px 28px;border-radius:4px;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.2s" onmouseover="this.style.borderColor='#b5832a';this.style.color='#b5832a'" onmouseout="this.style.borderColor='rgba(26,25,22,0.15)';this.style.color='#4a4843'">View All Articles →</a>
+  </div>
 </section>
-  
+
 <!-- CASE STUDIES -->
 <div style="background:var(--bg2)">
   <div style="max-width:1100px;margin:0 auto;padding:5rem 2rem" id="casestudies">
     <div class="section-label">Proof of Work</div>
     <div class="section-title">Case Studies</div>
     <div class="divider"></div>
-   <div class="posts-grid" id="cases-grid">
-
-  <a href="case-study-1.html" style="text-decoration:none;color:inherit">
-    <div class="post-card">
-      <div class="post-thumb" style="background:#111010;display:flex;flex-direction:column;justify-content:space-between;padding:1rem;height:160px">
-  <div style="font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#5f5e5a">InterpretOmics · 2015–2017</div>
-  <div>
-    <div style="font-size:2rem;font-weight:700;color:#d4a44c;font-family:'Playfair Display',serif;line-height:1">105%</div>
-    <div style="font-size:0.6rem;color:#7a7874;letter-spacing:0.1em;text-transform:uppercase;margin-top:4px">Quota achieved</div>
+    <div class="posts-grid" id="cases-grid">
+      <a href="case-study-1.html" style="text-decoration:none;color:inherit">
+        <div class="post-card">
+          <div class="post-thumb" style="background:#111010;display:flex;flex-direction:column;justify-content:space-between;padding:1rem;height:160px">
+            <div style="font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#5f5e5a">InterpretOmics · 2015–2017</div>
+            <div>
+              <div style="font-size:2rem;font-weight:700;color:#d4a44c;font-family:'Playfair Display',serif;line-height:1">105%</div>
+              <div style="font-size:0.6rem;color:#7a7874;letter-spacing:0.1em;text-transform:uppercase;margin-top:4px">Quota achieved</div>
+            </div>
+          </div>
+          <div class="post-body">
+            <span class="post-tag">InterpretOmics · 2015–2017</span>
+            <div class="post-title">Selling Into a Market That Didn't Know It Needed You</div>
+            <div class="post-excerpt">Breaking into clinical labs with no pipeline, no brand and a product the market hadn't heard of yet.</div>
+            <div class="post-meta"><span>Case Study</span><span>4 min read</span></div>
+          </div>
+        </div>
+      </a>
+      <a href="case-study-2.html" style="text-decoration:none;color:inherit">
+        <div class="post-card">
+          <div class="post-thumb" style="background:#111010;display:flex;flex-direction:column;justify-content:space-between;padding:1rem;height:160px">
+            <div style="font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#5f5e5a">Dokk Clinics · 2017–2020</div>
+            <div>
+              <div style="font-size:2rem;font-weight:700;color:#5dcaa5;font-family:'Playfair Display',serif;line-height:1">$500K</div>
+              <div style="font-size:0.6rem;color:#7a7874;letter-spacing:0.1em;text-transform:uppercase;margin-top:4px">Year one revenue</div>
+            </div>
+          </div>
+          <div class="post-body">
+            <span class="post-tag">Dokk Clinics · 2017–2020</span>
+            <div class="post-title">From Idea to Revenue — Co-Founding Dokk Clinics</div>
+            <div class="post-excerpt">How we built a CGM-based remote monitoring service from zero and hit $500K in year one.</div>
+            <div class="post-meta"><span>Case Study</span><span>4 min read</span></div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:2rem">
+      <a href="casestudies.html" style="display:inline-block;border:1px solid rgba(26,25,22,0.15);color:#4a4843;text-decoration:none;padding:10px 28px;border-radius:4px;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.2s" onmouseover="this.style.borderColor='#b5832a';this.style.color='#b5832a'" onmouseout="this.style.borderColor='rgba(26,25,22,0.15)';this.style.color='#4a4843'">View All Case Studies →</a>
+    </div>
   </div>
 </div>
-      <div class="post-body">
-        <span class="post-tag">InterpretOmics · 2015–2017</span>
-        <div class="post-title">Selling Into a Market That Didn't Know It Needed You</div>
-        <div class="post-excerpt">Breaking into clinical labs with no pipeline, no brand and a product the market hadn't heard of yet.</div>
-        <div class="post-meta"><span>Case Study</span><span>4 min read</span></div>
-      </div>
-    </div>
-  </a>
 
-  <a href="case-study-2.html" style="text-decoration:none;color:inherit">
-    <div class="post-card">
-     <div class="post-thumb" style="background:#111010;display:flex;flex-direction:column;justify-content:space-between;padding:1rem;height:160px">
-  <div style="font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#5f5e5a">Dokk Clinics · 2017–2020</div>
-  <div>
-    <div style="font-size:2rem;font-weight:700;color:#5dcaa5;font-family:'Playfair Display',serif;line-height:1">$500K</div>
-    <div style="font-size:0.6rem;color:#7a7874;letter-spacing:0.1em;text-transform:uppercase;margin-top:4px">Year one revenue</div>
-  </div>
-</div>
-      <div class="post-body">
-        <span class="post-tag">Dokk Clinics · 2017–2020</span>
-        <div class="post-title">From Idea to Revenue — Co-Founding Dokk Clinics</div>
-        <div class="post-excerpt">How we built a CGM-based remote monitoring service from zero and hit $500K in year one.</div>
-        <div class="post-meta"><span>Case Study</span><span>4 min read</span></div>
-      </div>
-    </div>
-  </a>
-
-</div>
-<div style="text-align:center;margin-top:2rem">
-  <a href="casestudies.html" style="display:inline-block;border:1px solid rgba(26,25,22,0.15);color:#4a4843;text-decoration:none;padding:10px 28px;border-radius:4px;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.2s" onmouseover="this.style.borderColor='#b5832a';this.style.color='#b5832a'" onmouseout="this.style.borderColor='rgba(26,25,22,0.15)';this.style.color='#4a4843'">View All Case Studies →</a>
-</div>
-    
 <!-- CONTACT -->
 <div style="background:var(--bg2)">
   <div style="max-width:1100px;margin:0 auto;padding:5rem 2rem" id="contact">
@@ -598,7 +572,7 @@
 
 <!-- FOOTER -->
 <footer style="text-align:center;padding:2rem;background:var(--bg);border-top:1px solid var(--border)">
-  <p style="font-size:0.78rem;color:var(--text3);letter-spacing:0.08em">© 2024 <span id="footer-name">Dhaval Mehta</span> · Built with intention</p>
+  <p style="font-size:0.78rem;color:var(--text3);letter-spacing:0.08em">© 2026 <span id="footer-name">Dhaval Mehta</span> · Built with intention</p>
 </footer>
 
 </div>
