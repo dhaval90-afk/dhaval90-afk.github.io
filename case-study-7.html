@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fixing the Foundation — Repairing Broken Mailboxes Before Sending a Single Cold Email</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: #faf9f7; color: #1a1916; line-height: 1.7; }
+  nav { background: rgba(250,249,247,0.97); border-bottom: 1px solid rgba(26,25,22,0.12); padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: #b5832a; text-decoration: none; }
+  .back-btn { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4a4843; text-decoration: none; border: 1px solid rgba(26,25,22,0.12); padding: 6px 16px; border-radius: 4px; transition: all 0.2s; }
+  .back-btn:hover { border-color: #b5832a; color: #b5832a; }
+  .hero { background: #1a1916; padding: 5rem 2rem 4rem; text-align: center; }
+  .post-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #d4a44c; border: 1px solid #d4a44c; padding: 4px 14px; border-radius: 20px; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; line-height: 1.2; color: #f0ede8; max-width: 700px; margin: 0 auto 1.2rem; }
+  .hero .meta { font-size: 0.82rem; color: #7a7874; letter-spacing: 0.06em; }
+  .hero .meta span { color: #b5832a; margin: 0 0.5rem; }
+  .article { max-width: 680px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+  .divider { width: 48px; height: 3px; background: #b5832a; margin: 0 auto 3rem; }
+  .article p { color: #4a4843; margin-bottom: 1.6rem; font-size: 1.05rem; line-height: 1.85; }
+  .article h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #1a1916; margin: 3rem 0 1rem; }
+  blockquote { border-left: 3px solid #b5832a; margin: 2.5rem 0; padding: 1rem 1.5rem; background: #f2f0ec; border-radius: 0 6px 6px 0; }
+  blockquote p { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: #1a1916; font-style: italic; margin: 0; line-height: 1.6; }
+  .advantage-list { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; }
+  .advantage-item { background: #fff; border: 1px solid rgba(26,25,22,0.1); border-radius: 8px; padding: 1.2rem 1.4rem; border-left: 4px solid #b5832a; }
+  .advantage-item strong { display: block; font-size: 0.95rem; font-weight: 700; color: #1a1916; margin-bottom: 0.3rem; }
+  .advantage-item span { font-size: 0.88rem; color: #7a7874; line-height: 1.6; }
+  .callout { background: #1a1916; color: #f0ede8; padding: 2rem; border-radius: 8px; margin: 2.5rem 0; }
+  .callout p { color: #b8b5b0; margin-bottom: 0; font-size: 0.97rem; }
+  .callout strong { color: #d4a44c; display: block; font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .closing { background: #f2f0ec; border-radius: 8px; padding: 2rem; margin-top: 3rem; text-align: center; }
+  .closing p { color: #4a4843; font-size: 0.95rem; margin-bottom: 1rem; }
+  .closing a { display: inline-block; background: #b5832a; color: #fff; text-decoration: none; padding: 10px 24px; border-radius: 4px; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  footer { text-align: center; padding: 2rem; background: #faf9f7; border-top: 1px solid rgba(26,25,22,0.08); font-size: 0.78rem; color: #7a7874; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Dhaval Mehta</a>
+  <a href="casestudies.html" class="back-btn">← Back to Case Studies</a>
+</nav>
+<div class="hero">
+  <div class="post-tag">Case Study · Workhall · GTM Strategy</div>
+  <h1>Fixing the Foundation — Repairing Broken Mailboxes Before Sending a Single Cold Email</h1>
+  <div class="meta">Workhall <span></div>
+</div>
+<article class="article">
+  <div class="divider"></div>
+
+  <h2>The Situation</h2>
+  <p>I joined Workhall as a GTM Strategist to help build out our outbound prospecting engine. By the time I came on board, a lot of the strategic groundwork was already in place — we had a defined ICP, and I quickly layered on top of it: pulling and filtering prospect lists in Apollo against that ICP, and building the touchpoint sequence and cold email framing we'd use to reach them.</p>
+  <p>On paper, that meant we were close to launch. In practice, the mailboxes we were about to send from were still warming up — and when I checked their status, several were flagged as unhealthy rather than healthy in Apollo's inbox placement checks. That one detail meant everything else I'd built so far was at risk of never being seen at all.</p>
+
+  <h2>Why "Unhealthy" Mailboxes Made Everything Else Irrelevant</h2>
+  <p>It's easy to assume that once your ICP is sharp and your copy is good, the rest takes care of itself. It doesn't. An inbox placement test in Apollo doesn't just tell you whether an email was sent — it tells you where it actually landed. A mailbox marked unhealthy means a meaningful share of test sends were going to spam, to promotions, or not arriving at all, which usually points to weak sender reputation or a domain configuration issue rather than anything wrong with the message itself.</p>
+  <p>That was the moment the job changed for me. I wasn't just writing cold emails anymore — I was making sure they had somewhere to land.</p>
+
+  <div class="advantage-list">
+    <div class="advantage-item">
+      <strong>Slowed the send volume down deliberately</strong>
+      <span>New and recently-warmed mailboxes lose trust fast if they're pushed too hard too early. I brought sending limits down to a conservative daily volume per mailbox rather than the default, giving each inbox room to build a track record before scaling back up.</span>
+    </div>
+    <div class="advantage-item">
+      <strong>Verified authentication end to end</strong>
+      <span>Domain authentication is invisible until it's broken. I made sure SPF, DKIM and DMARC were correctly configured and aligned for every sending domain — the kind of thing that looks fine at a glance but quietly tanks deliverability if it's even slightly off.</span>
+    </div>
+    <div class="advantage-item">
+      <strong>Re-ran inbox placement tests as a checkpoint, not a one-off</strong>
+      <span>Rather than treating the initial "unhealthy" result as a single verdict, I used it as a baseline and re-tested after each change, tracking the shift from mostly spam/promotions placement toward the inbox before allowing the campaign to scale.</span>
+    </div>
+    <div class="advantage-item">
+      <strong>Protected the warm-up instead of rushing it</strong>
+      <span>It's tempting to interrupt warm-up the moment a launch date is approaching. I held the line on giving mailboxes the runway they needed, because restarting a damaged sender reputation costs far more time than waiting a few extra days.</span>
+    </div>
+  </div>
+
+  <h2>What Changed</h2>
+  <p>Once the mailboxes cleared into healthy status, the campaign we'd been building toward — the ICP, the lists, the sequence, the copy — finally had a real chance to be read by the people it was written for. The campaign is live and running now, sending against the ICP-filtered lists through the sequence we built, from mailboxes that are actually landing in the inbox instead of quietly disappearing into spam.</p>
+  <p>None of the upstream strategy work would have mattered if I hadn't stopped to fix this first. A perfectly targeted list and a sharp cold email mean nothing if the message never arrives.</p>
+
+  <blockquote>
+    <p>The best cold email in the world is worthless if it never leaves the spam folder. Deliverability isn't an IT afterthought — it's a GTM decision.</p>
+  </blockquote>
+
+  <div class="callout">
+    <strong>The key takeaway</strong>
+    <p>Go-to-market strategy usually gets discussed in terms of positioning, targeting and messaging. But the infrastructure underneath — domain health, mailbox reputation, inbox placement — decides whether any of that strategy ever reaches a human being. Treat it as a first-class part of the GTM build, not a technical detail to delegate and forget.</p>
+  </div>
+
+  <div class="closing">
+    <p>Working on outbound infrastructure or facing deliverability issues of your own? I'd love to compare notes.</p>
+    <a href="index.html#contact">Get in Touch</a>
+  </div>
+
+  <div style="margin-top:2.5rem;background:#1a1916;border-radius:8px;padding:2rem;text-align:center;border:1px solid rgba(212,164,76,0.25)">
+    <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#7a7874;margin-bottom:0.5rem">If this resonated</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:#f0ede8;margin-bottom:0.5rem">I write about sales & CX every week.</div>
+    <div style="font-size:0.9rem;color:#b8b5b0;margin-bottom:1.5rem">Practical frameworks. Real situations. No fluff.</div>
+    <a href="https://www.linkedin.com/company/sales-cx/" target="_blank" style="display:inline-block;background:#b5832a;color:#fff;text-decoration:none;padding:10px 28px;border-radius:4px;font-weight:700;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase">Follow Sales & CX on LinkedIn ↗</a>
+  </div>
+</article>
+<footer>© 2026 Dhaval Mehta · <a href="index.html" style="color:#b5832a;text-decoration:none">Back to Portfolio</a></footer>
+</body>
+</html>
